@@ -1,0 +1,3 @@
+A short intro into Swift (2.2)
+- We're showing you how to handle with variables, constants, operators, loops
+- Just go trough and read comments above each example, it is prety self explanatory and straight forward.
