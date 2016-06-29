@@ -194,7 +194,7 @@ print (stringExamList)
 //Sets (Collections) Set<Element>,  .isEmpty, .count, .insert(_:), .removeAll(), .contains(_:)
 
 var letterCounter = Set<Character>()
-var countSweeties: Int = 0;
+var countSweeties: Int = 0
 countSweeties = 4
 var removeSweetieFromShoppingList = false
 let keepMyHealtPriorToSatisfaction = true
