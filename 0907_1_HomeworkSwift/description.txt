@@ -1,0 +1,55 @@
+ZADATAK 1
+
+Dio 1
+
+1) Napisati strukturu Location. Struktura ima dva polja:
+	- latitude, Double
+	- longitude, Double;
+i inicijalizator koji ne prima argumente, a postavlja polja po pravilima:
+	latitude = Double(arc4random()%181) - 90.0
+	longitude = Double(arc4random()%361) - 90.0
+
+2) Napisati klasu Person. Klasa sadrži polja:
+- name, String
+	- lastName, String
+	- yearOfBirth, Int
+	- location, Location;
+kao i jedno prera
+unato polje:
+	- age, Int;
+koje vraća vrijednost razlike od 2016 i yearOfBirth. 
+Klasa takođe sadrži dva inicijalizatora:
+- Određeni, koji prima i popunjava sva polja osobe
+	- Pogodni, koji prima name i lastName, a za yearOfBirth i location upisuje 1990 i Location()
+Klasa još sadrži metodu:
+- introduction() -> String , koja vraća string formata “Hi, my name is NAME LASTNAME. Age AGE.”
+
+3) Napraviti dve konstante:
+	- mirko: Person, sa podacima Mirko, Babic, 1987, Location()
+	- nedim: Person, sa podacima Nedim, Sabic, 1982, Location()
+Pozvati metode introduction() nad konstantama.
+
+Dio 2
+
+1) Napisati strukturu Course, koja sadrži polja:
+	- teacher, Person
+	- courseName, String;
+te jednu metodu:
+	- aboutCourse() –> String, koja vraća string formata “COURSENAME course by prof. TEACHER.LASTNAME”
+
+2) Napisati klasu Student, koja nasljeđuje klasu Person. Klasa Student sadrži polja:
+	- attendingCourses: [Course]
+	- grades: [Int]
+	- faculty = “WiP”;
+preračunato polje:
+- averageGrade, Double
+koje sabira sve ocjene, sumu dijeli sa zbirom ocjena te vraća rezultat.
+Klasa sadrži metodu init() koja prima sva polja: name, lastName, yearOfBirth, location, courses i grades.
+Klasa takođe preklapa metodu tako što na super.introduction() dodaje “I’m a student at FACULTY. My favourite course is “ + attendingCourses.first!.aboutCourse() i to sve vraća kao rezultat.
+
+3) Napraviti kurseve:
+	- iOSDevelopment: Course, sa podacima mirko, “iOS Development”
+	- seo: Course, sa podacima nedim, “SEO”
+Napraviti niz kurseva courses sa vrijednostima [seo, iOSDevelopment]
+Napraviti konstantu student: Student sa ličnim podacima. Za kurseve proslijediti courses, a za grades niz nekih ocjena tipa [6, 7, 9, 10, 10, 8, 9, 10]
+Nad student pozvati metodu introduction().
