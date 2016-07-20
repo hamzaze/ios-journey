@@ -1,0 +1,33 @@
+ZADATAK 2
+
+1) Napisati klasu Parent, koja nasljeđuje klasu Person. Klasa ima dva polja:
+	- children, [Person]
+	- savings, Double?.
+Klasa ima određeni inicijalizator koji popunjava sva polja roditeljske klase i polje children i pogodni inicijalizator koji podešava polje children na prazan niz osoba.
+
+Klasa takođe preklapa metodu tako što na super.introduction() dodaje “I’m a parent of children.count” u slučaju da children nije prazan niz i to vraća kao rezultat.
+
+2) Klasi Person dodati dva opciona polja:
+- father: Person?
+- mother: Person?
+
+3) Pošto Person može imati reference na roditelje (father & mother), kao što i roditelj može imati reference na djecu (children), to može dovesti do snažnog referentnog kruga. Preventivno, postaviti roditelje da imaju slabe reference na sebe. AUTOMATSKO PREBROJAVANJE REFERENCI
+
+4) Klasi Student promjeniti preklopljenu metodu introduction() tako što će na postojeću strukturu (super.introduction() dodaje “I’m a student at FACULTY. My favourite course is “ + attendingCourses.first!.aboutCourse()) dodati jedan od slijedećih stringova:
+	- ako father ima savings dodati ". My father has $\(savings) savings."
+	- ako mother ima savings dodati ". My mother has $\(savings) savings."
+	- u suprotnom dodati ". My parents are broke."
+i to vratiti kao rezultat. OPCIONALNO VEZIVANJE
+
+5) Proširiti strukturu Int metodom ageInDays(), koja vraća broj pomnožen sa 365. EKSTENZIJE
+
+6) Napraviti
+	- studenta sa ličnim podacima (Ime, prezime...)
+	- brata ili sestru kao osobu (ako postoji)
+	- oca sa ličnim podacima oca, a za children staviti u niz sebe i/ili brata-sestru
+	- majku sa ličnim podacima majke, za children staviti u niz sebe i/ili brata-sestru, a za savings staviti arc4random()%10000
+	- studentu (sebi) dodjeliti oca i majku
+
+7) Nad roditeljima i nad sobom 
+	- pozvati metodu introduction()
+	- provjeriti koliki je broj godina u danima (i.e. student.age.ageInDays() )
