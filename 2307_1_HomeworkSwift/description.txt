@@ -1,0 +1,49 @@
+ZADATAK 3
+
+1) Napisati strukturu Contact, koja sadrži dve variable:
+	- name, String
+	- phoneNumber, String1
+
+2) Napisati klasu Message, koja ima:
+	- ugnježđeni enum Status, sa slučajevima:
+		- Received
+		- Read
+	- konstantu sender: Contact
+	- konstantu text: String
+	- variablu status: Status, koja ima početnu vrijednost Status.Received.
+
+Klasa ima određeni inicijalizator koji prima i popunjava polja sender i text.
+Klasa sadrži i metodu changeStatusToRead(), koja mijenja polje status na .Read
+
+3) Napisati protokol MessageHandlerDelegate: class2, koji sadrži deklaraciju funkcije didReceiveMessage(message: Message)
+
+4) Napisati klasu Telephone koja sadrži:
+	- privatnu varijablu messages: [Message], koja ima početnu vrijednost [Message]()
+	- varijablu model: String
+	- weak variablu delegate: MessageHandlerDelegate?3
+
+Klasa ima određeni inicijalizator koji prima i popunjava polje model.
+Klasa sadrži metodu addNewMessage(message: Message) koja u messages dodaje novi message, te nakon toga nad delegatom poziva metodu didReceiveMessage i proslijeđuje mu message
+
+5) Klasi Person dodati privatnu varijablu telephone: Telephone?4
+Klasi Person dodati dvije nove metode:
+	- addTelephone(telephone: Telephone), koja osobi dodaje telefon i telefonu postavlja osobu da bude njegov delegat:
+	telephone.delegate = self5
+	- removeTelephone(), koja postavlja polje telephone na nil i telefonu postavlja delegata na nil
+
+6) Proširiti klasu Person sa protokolom MessageHandlerDelegate, te implementirati funkciju didReceiveMessage(message: Message) tako da tu poruku proslijedi metodi readMessage(message: Message)
+Napisati privatnu metodu readMessage(message: Message) koja mijenja status poruke sa changeStatusToRead(), te ispisuje:
+print("Hey I've got this message from \(message.sender.name): \(message.text)")
+
+7) Implementacija:
+- Napraviti konstantu telephone sa proizvoljnim imenom modela
+- Telefon dodati nekoj osobi x preko metode addTelephone(_:)
+- Napraviti tri kontakta sa proizvoljnim imenima i proizvoljnim brojevima telefona
+- Napraviti tri poruke sa kontaktima i proizvoljnim porukama
+- Telefonu dodati preko metode addNewMessage(_:) prve dve poruke
+- Osobi x smaketi telefon preko metode removeTelephone()
+- Telefonu dodati treću poruku
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+U donjem lijevom uglu Playgroundu pritisnuti Debug area i provjeriti rezultat
