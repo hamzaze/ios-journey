@@ -2,8 +2,8 @@ import UIKit
 import Foundation
 
 //function to print anything, with a delay
-func delayedPrint(text: String){
-    usleep(500000)
+func delayedPrint(text: String, delayed: Int = 1000000){
+    usleep(UInt32(delayed))
     print(text)
 }
 
@@ -54,7 +54,8 @@ class Driver: Person, DrivingLicence{
             return
         }
         delayedPrint("Mechanic responded he can fix this car")
-        mechanic.fixCar(car)    }
+        mechanic.fixCar(car)
+    }
     
     func driveCar() {
         let matchDriverAndCarLicences = drivingLicence.intersect(car!.licenceType)
@@ -149,6 +150,7 @@ class Car {
             crossedKilometers += 10
             //delayedPrint("chanceForBrokenEngine = \(chanceForBrokenEngine)")
             broken = chanceForBrokenEngine == 1 ? true : false
+            delayedPrint("Car passed \(crossedKilometers) km and fuel consumption is \(fuelLevel) l.", delayed: 30000)
             
         } while engineOn == true
     }
