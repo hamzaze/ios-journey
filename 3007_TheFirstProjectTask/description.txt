@@ -1,0 +1,85 @@
+PROJEKTNI ZADATAK
+
+Priprema
+
+1. Importovati Foundation framework
+2. Napisati funkciju delayedPrint(), koja prima String kao argument, a u tijelu poziva funkciju sleep(2)1 i funkciji print() proslijeđuje primljeni string
+3. Napisati klasu Person, koja sadrži tri polja: firstName, lastName i age
+4. U klasi Person napisati inicijalizator koji inicijalizuje navedena polja
+5. Klasu Person nasljeđuju klase Driver i Mechanic
+6. Napisati enumeraciju kategorija (licenci) vozačkih dozvola: DrivingLicenceType sa slučajevima A, B, C i D
+7. Napisati protokol DrivingLicence koji zahtjeva od klase koja prihvata da sadrži promjenljivu Set<DrivingLicenceType> koja je {get set}
+8. Klasa Driver ispunjava protokol DrivingLicence i sadrži polje Set<DrivingLicenceType>
+9. U inicijalizatoru Drivera dodati argument tipa Set<DrivingLicenceType> koje inicijalizuje polje (zajedno sa drugim poljima potrebnim da se inicijalizuje Person)
+10. Klasa Mechanic sadrži polje authorizedServicerForLicenceTypes: Set<DrivingLicenceType>
+11. U inicijalizatoru Mechanica dodati argument tipa Set<DrivingLicenceType> koje inicijalizuje polje (zajedno sa drugim poljima potrebnim da se inicijalizuje Person)
+12. Driveru dodati polje mechanic: Mechanic?
+13. Napisati klasu Car, koja sadrži polja: 
+a. name, 
+b. model, 
+c. licenceType: DrivingLicenceType, 
+d. fuelTank (kapacitet rezervoara), 
+e. crossedKilometers = 0, 
+f. privatnu variablu fuel (količinu goriva)
+g. preračunatu variablu fuelLevel koja:
+g.i. u getteru vraća vrijednost polja fuel
+g.ii. u setteru provjerava da li je nova vrijednost veća od kapaciteta rezervoara. Ako jeste ona fuel postavlja na kapacitet rezervoara, u suprotnom fuel postavlja na novu vrijednost
+h. broken = false
+i. engineOn = false
+j. driver: DrivingLicence?2
+14. Napisati inicijalizator koji prihvata i popunjava polja: name, model, licenceType, fuelTank i fuelLevel
+15. Napisati protokol CarMonitoringDelegate koji sadrži tri funkcije:
+a. engineBroke()
+b. lowOnFuel()
+c. outOfFuel()
+16. Klasi Car dodati polje delegate: CarMonitoringDelegate?
+17. Klasi Driver dodati polje car: Car?
+18. Klasa Car ima dvije metode:
+a. stop(), koja engineOn postavlja na false
+b. drive(), koja:
+b.i. ispisuje "Starting engine"
+b.ii. engineOn postavlja na true
+b.iii. ponavlja blok koda dok god je engineOn == true
+b.iv. blok koda prvo provjerava da li je auto broken, ako jeste
+b.iv.1.  ispisuje "Engine broke"
+b.iv.2. delegata obavještava metodom engineBroke()
+b.iv.3. te poziva metodu stop()
+b.v. nakon toga blok koda provjerava da li je fuelLevel == 10, ako jeste
+b.v.1. ispisuje "Fuel low"
+b.v.2. delegata obavještava metodom lowOnFuel()
+b.vi. blok koda radi još jednu provjeru da li ima uopšte goriva sa fuelLevel > 0, ako nema
+b.vi.1. ispisuje "Empty fuel tank"
+b.vi.2. delegata obavještava metodom outOfFuel()
+b.vi.3. te poziva metodu
+b.vii. kad prođe sve provjere:
+b.vii.1. fuelLevel se smanji za 1
+b.vii.2. crossedKilometers se poveća za 10
+b.vii.3. a broken polje ima šansu 1 / 100 da se pokvari, tj. da bude true
+19. Napisati ekstenziju klase Driver koja prihvata protokol CarMonitoringDelegate pružajući implementaciju metoda:
+a. engineBroke():
+a.i. ispisuje "Calling a mechanic"
+a.ii. poziva metodu callMechanic() sa argumentima mechanic i car (implementacija ove metode biće navedena u slijedećoj tački)
+b. lowOnFuel():
+b.i. nasumično generiše broj tako da 2 od 3 puta vozač dopunjava gorivo, prvo ispisujući "I will add some gas now.", pa zatim doliva nasumičnu količinu goriva do visine rezervoara i ispisuje "Added fuel. Current fuel level NIVO_GORIVA"
+b.ii. nasuprot, 1 od 3 puta ispisuje "I will add some gas later"
+c. outOfFuel():
+c.i. ispisuje "I will add some gas now.", pa zatim doliva nasumičnu količinu goriva do visine rezervoara i ispisuje "Added fuel. Current fuel level NIVO_GORIVA"
+20. Klasi Driver dodati metodu callMechanic(mechanic: Mechanic, toFixACar car: Car) koja provjerava da li mehaničar ima dozvolu za tip licence tog automobila:
+a. ako ima, ispisuje "Mechanic responded he can fix this car", te nad mehaničarem poziva metodu fixCar(), prosljeđujući auto (implementacija ove metode biće navedena u slijedećoj tački)
+b. ako nema, ispisuje "Mechanic responded he can not fix this car"
+21. Klasi Mechanic dodati metodu fixCar(car: Car) koja:
+a. ispisuje "IME_MEHANIČARA is fixing car"
+b. polje broken kod auta postavlja na false
+c. ispisuje "Car fixed"
+22. Klasi Driver dodati metodu driveCar() koja nad autom poziva metodu drive()
+
+Simulacija
+
+1. Napraviti instancu Drivera sa svojim podacima
+2. Napraviti instancu Car sa nekim korektnim podacima
+3. Napraviti instancu Mechanica sa podacima nekog iz grupe
+4. Instanci vozača dodjeliti auto
+5. Autu dodjeliti vozača kao delegata
+6. Vozaču dodjeliti mehaničara
+7. U for petlji 10 puta pozvati metodu driveCar() nad vozačem
+8. Ispisati "Car crossed PREĐENI_KILOMETRI km in this run"
