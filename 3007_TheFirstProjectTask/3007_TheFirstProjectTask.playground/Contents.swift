@@ -48,8 +48,8 @@ class Driver: Person, DrivingLicence{
     }
     
     func callMechanic(mechanic: Mechanic, toFixACar car: Car) {
-        let isEmptyMatchMechanicCarIntersect = mechanic.authorizedServicerForLicenceTypes.intersect(car.licenceType)
-        guard isEmptyMatchMechanicCarIntersect.isEmpty == false else {
+        let matchDriverAndCarLicences = mechanic.authorizedServicerForLicenceTypes.contains(car.licenceType)
+        guard matchDriverAndCarLicences == true else {
             delayedPrint("Mechanic responded he can not fix this car")
             return
         }
@@ -58,8 +58,8 @@ class Driver: Person, DrivingLicence{
     }
     
     func driveCar() {
-        let matchDriverAndCarLicences = drivingLicence.intersect(car!.licenceType)
-        if matchDriverAndCarLicences.isEmpty {
+        let matchDriverAndCarLicences = drivingLicence.contains(car!.licenceType)
+        if matchDriverAndCarLicences == false {
             delayedPrint("THIS DRIVER IS NOT PROVIDED TO DRIVE THIS CAR");
             return
         }
@@ -87,15 +87,15 @@ class Mechanic: Person {
 class Car {
     var name: String
     let model: String
-    let licenceType: Set<DrivingLicenceType>
+    let licenceType: DrivingLicenceType
     let fuelTank: Int //we might put this as :Double, more realistic
     var crossedKilometers = 0
-    private var fuel: Int //fuel in the tank
+    private var fuel: Int? //fuel in the tank
     
     //computed variable to fill up the tank
     var fuelLevel: Int { // we might put this as :Int, but :Double is closer to the real case
         get {
-            return fuel
+            return fuel!
         }
         set{
             fuel = newValue > fuelTank ? fuelTank : newValue
@@ -111,14 +111,14 @@ class Car {
     init(
         name: String,
         model: String,
-        licenceType: Set<DrivingLicenceType>,
+        licenceType: DrivingLicenceType,
         fuelTank: Int,
-        fuel: Int) {
+        fuelLevel: Int) {
             self.name = name
             self.model = model
             self.licenceType = licenceType
             self.fuelTank = fuelTank
-            self.fuel = fuel
+            self.fuelLevel = fuelLevel
     }
     
     //methods
@@ -150,7 +150,7 @@ class Car {
             crossedKilometers += 10
             //delayedPrint("chanceForBrokenEngine = \(chanceForBrokenEngine)")
             broken = chanceForBrokenEngine == 1 ? true : false
-            delayedPrint("Car passed \(crossedKilometers) km and fuel consumption is \(fuelLevel) l.", delayed: 30000)
+            delayedPrint("Car passed \(crossedKilometers) km and a fuel level in the tank is \(fuelLevel) l.", delayed: 30000)
             
         } while engineOn == true
     }
@@ -187,7 +187,7 @@ extension Driver: CarMonitoringDelegate {
 //Simulation
 
 let driver = Driver(drivingLicence: [DrivingLicenceType.B, DrivingLicenceType.C], firstName: "Hamza", lastName: "Hrnjicevic", age: 40)
-let car = Car(name: "Citroen", model: "Xsara Picasso", licenceType: [DrivingLicenceType.B], fuelTank: 70, fuel: 0)
+let car = Car(name: "Citroen", model: "Xsara Picasso", licenceType: .B, fuelTank: 70, fuelLevel: 20)
 let mechanic = Mechanic(authorizedServicerForLicenceTypes: [DrivingLicenceType.B, DrivingLicenceType.C, DrivingLicenceType.D], firstName: "Anel", lastName: "Hadzic", age: 26)
 
 driver.car = car
