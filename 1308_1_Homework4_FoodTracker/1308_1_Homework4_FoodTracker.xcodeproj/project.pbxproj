@@ -392,6 +392,7 @@
 				BBD934DC1D64B0DF009148F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BBD934DD1D64B0DF009148F6 /* Build configuration list for PBXNativeTarget "1308_1_Homework4_FoodTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -400,6 +401,7 @@
 				BBD934DF1D64B0DF009148F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

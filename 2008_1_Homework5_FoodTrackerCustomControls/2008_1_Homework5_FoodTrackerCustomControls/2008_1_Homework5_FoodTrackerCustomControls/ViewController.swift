@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  1308_1_Homework4_FoodTracker
+//  2008_1_Homework5_FoodTrackerCustomControls
 //
-//  Created by Hamza on 17/08/16.
+//  Created by Hamza on 24/08/16.
 //  Copyright © 2016 Hamza. All rights reserved.
 //
 
@@ -11,8 +11,11 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
+    
+    @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var ratingControl: RatingControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,17 +25,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     // MARK: UITextFieldDelegate
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        // Hide the keyboard
+        // Hide the keyboard.
         textField.resignFirstResponder()
         return true
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        //mealNameLabel.text = textField.text
+        mealNameLabel.text = textField.text
     }
     
     // MARK: UIImagePickerControllerDelegate
+    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
         dismissViewControllerAnimated(true, completion: nil)
@@ -50,6 +55,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     // MARK: Actions
+    
     @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
         // Hide the keyboard
         nameTextField.resignFirstResponder()
@@ -65,8 +71,5 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         presentViewController(imagePickerControler, animated: true, completion: nil)
     }
-
-    @IBAction func setDefaultLabelText(sender: UIButton) {
-        //mealNameLabel.text = "Default Text"
-    }
 }
+
