@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "607848E81109E3CCEB747225C4E975F2907A134B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "607848E81109E3CCEB747225C4E975F2907A134B" : 0,
+    "9ABB8A76455D95FFACC41E7493C22AA75CBF94FA" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9EBAFCBB-EB53-4CE5-8FBB-76F2D100AE9B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "607848E81109E3CCEB747225C4E975F2907A134B" : "ios-journey\/",
+    "9ABB8A76455D95FFACC41E7493C22AA75CBF94FA" : "ios-journey\/2008_1_Homework5_FoodTrackerCustomControls\/Persei\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "2008_1_Homework5_FoodTrackerCustomControls",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "2008_1_Homework5_FoodTrackerCustomControls\/2008_1_Homework5_FoodTrackerCustomControls\/2008_1_Homework5_FoodTrackerCustomControls.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/hamzaze\/ios-journey.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "607848E81109E3CCEB747225C4E975F2907A134B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/yalantis\/Persei.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9ABB8A76455D95FFACC41E7493C22AA75CBF94FA"
+    }
+  ]
+}
