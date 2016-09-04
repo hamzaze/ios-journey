@@ -1,0 +1,33 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "f54c0b59-3a7d-6361-6d4e-ce57b7db7bff++5238",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "f54c0b59-3a7d-6361-6d4e-ce57b7db7bff++5238" : {
+      "DVTSourceControlWorkingCopyRepositoryBranchesLocationKey" : "branches",
+      "DVTSourceControlWorkingCopyRepositoryPrimaryBranchLocationKey" : "trunk"
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "607848E81109E3CCEB747225C4E975F2907A134B" : 0,
+    "f54c0b59-3a7d-6361-6d4e-ce57b7db7bff++5238" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E6CA793B-66AF-46BE-A6E9-7BF97D04CC5C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "607848E81109E3CCEB747225C4E975F2907A134B" : "",
+    "f54c0b59-3a7d-6361-6d4e-ce57b7db7bff++5238" : "0309_1_Homework7_FoodTrackerEditPersistData\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "0309_1_Homework7_FoodTrackerEditPersistData",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "0309_1_Homework7_FoodTrackerEditPersistData.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/hamzaze\/ios-journey.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "607848E81109E3CCEB747225C4E975F2907A134B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/hamzaze\/ios-journey",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "f54c0b59-3a7d-6361-6d4e-ce57b7db7bff++5238"
+    }
+  ]
+}
