@@ -60,18 +60,14 @@ class ContactTableViewController: UITableViewController, newContactControllerDel
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "ContactTableViewCell"
-        
-        
-        
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ContactTableViewCell
-        
         
         // Fetches the appropriate meal for the data source layout.
         let contact = contacts[indexPath.row]
         cell.alternativeTextLabel.hidden = true
         let contactPhoneNumber = Contact.phoneInternationalPrefix + contact.phoneNumber
-        if let contactName = contact.name where contact.name != "" {
-            cell.textLabel!.text = contactName
+        if let contact = contact.name where contact != "" {
+            cell.textLabel!.text = contact
             cell.alternativeTextLabel.text = contactPhoneNumber
             cell.alternativeTextLabel.hidden = false
         } else {
@@ -104,7 +100,6 @@ class ContactTableViewController: UITableViewController, newContactControllerDel
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
-
     
     //Load sample contacts
     func loadSampleContacts() {
@@ -112,21 +107,22 @@ class ContactTableViewController: UITableViewController, newContactControllerDel
         let contact2 = Contact(name: "", phoneNumber: "65333444")!
         let contact3 = Contact(name: "Wife", phoneNumber: "62555666")!
         
+        //Add sample contacts to [Contact]
         contacts += [contact1, contact2, contact3]
     }
     
     // MARK: NSCoding
     
     func saveContacts() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(contacts, toFile: Contact.ArchiveURL.path!)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(contacts, toFile: Contact.ArchiveURL!.path!)
         
         if !isSuccessfulSave {
-            print("Failed to save contacts...")
+            AlertView.showAlert(self, title: "Greška", message: "Kontakt ne može biti snimljen")
         }
     }
     
     func loadContacts() -> [Contact]? {
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(Contact.ArchiveURL.path!) as? [Contact]
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Contact.ArchiveURL!.path!) as? [Contact]
     }
     
     // Prepare Segue
@@ -148,11 +144,8 @@ class ContactTableViewController: UITableViewController, newContactControllerDel
         controller.navigationController?.popViewControllerAnimated(true)
     }
     
-    
     // MARK: Actions
     @IBAction func editButtonItem(sender: UIBarButtonItem) {
         self.tableView.editing = !self.tableView.editing
     }
-    
-
 }

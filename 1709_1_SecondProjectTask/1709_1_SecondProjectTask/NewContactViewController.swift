@@ -18,42 +18,21 @@ class NewContactViewController: UIViewController, UITextFieldDelegate {
     var delegate: newContactControllerDelegate? = nil
 
     // MARK: Properties
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var nameTextField: DPTextField!
+    @IBOutlet weak var phoneTextField: DPTextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    @IBOutlet weak var addNewContactButton: UIButton!
+    @IBOutlet weak var addNewContactButton: DPButton!
     
     var contact: Contact?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupDefaultSegmentedControlsState()
         // Handle the text field's user input trough delegate callbacks.
         phoneTextField.delegate = self
-
-    }
-    
-    func setupDefaultSegmentedControlsState() {
-        addNewContactButton.cornerRadius = 4
-        addNewContactButton.borderWidth = 1
-        addNewContactButton.borderColor = Contact.themeColor
-        addNewContactButton.tintColor = Contact.themeColor
-        
-        nameTextField.cornerRadius = 4
-        nameTextField.borderWidth = 1
-        nameTextField.borderColor = Contact.themeColor
-        nameTextField.tintColor = Contact.themeColor
-        
-        phoneTextField.cornerRadius = 4
-        phoneTextField.borderWidth = 1
-        phoneTextField.borderColor = Contact.themeColor
-        phoneTextField.tintColor = Contact.themeColor
-
     }
     
     // MARK: UITextFieldDelegate
-    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         // Hide the keyboard.
         textField.resignFirstResponder()
@@ -64,7 +43,7 @@ class NewContactViewController: UIViewController, UITextFieldDelegate {
         // Disable the Save button while editing.
         let isPhoneNumber = checkValidPhoneNumber()
         if !isPhoneNumber {
-            showAlert()
+            AlertView.showAlert(self, title: "Greška", message: "Broj telefona je obavezan")
         }
     }
     
@@ -75,18 +54,6 @@ class NewContactViewController: UIViewController, UITextFieldDelegate {
         return saveButton.enabled
     }
     
-    //Alert function
-    func showAlert() {
-        let alertController = UIAlertController(title: "Greška", message: "Broj telefona je obavezan", preferredStyle: .Alert)
-        
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alertController.addAction(defaultAction)
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    
-    
     // MARK: Actions
     @IBAction func addNewContactFromMenu(sender: UIBarButtonItem) {
         addNewContact(sender)
@@ -95,7 +62,7 @@ class NewContactViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addNewContact(sender: AnyObject) {
         let isPhoneNumber = checkValidPhoneNumber()
         if !isPhoneNumber {
-            showAlert()
+            AlertView.showAlert(self, title: "Greška", message: "Broj telefona je obavezan")
             return
         } else {
             let name = nameTextField.text ?? ""
@@ -106,6 +73,4 @@ class NewContactViewController: UIViewController, UITextFieldDelegate {
             delegate?.addNewContactToContacts(self, contact: contact!)
         }
     }
-    
-    
 }

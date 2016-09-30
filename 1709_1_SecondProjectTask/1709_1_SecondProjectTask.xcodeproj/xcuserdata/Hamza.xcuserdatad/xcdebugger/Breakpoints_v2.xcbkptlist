@@ -2,4 +2,84 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "1709_1_SecondProjectTask/NewContactViewController.swift"
+            timestampString = "496906454.40507"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "NewContactViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_709_1_SecondProjectTask.NewContactViewController.phoneTextField.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "1709_1_SecondProjectTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///WIP-IOS/ios-journey/1709_1_SecondProjectTask/1709_1_SecondProjectTask/NewContactViewController.swift"
+                  timestampString = "496906454.409274"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_709_1_SecondProjectTask.NewContactViewController.phoneTextField.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "1709_1_SecondProjectTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///WIP-IOS/ios-journey/1709_1_SecondProjectTask/1709_1_SecondProjectTask/NewContactViewController.swift"
+                  timestampString = "496906454.410856"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "42">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_709_1_SecondProjectTask.NewContactViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; _709_1_SecondProjectTask.NewContactViewController"
+                  moduleName = "1709_1_SecondProjectTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///WIP-IOS/ios-journey/1709_1_SecondProjectTask/1709_1_SecondProjectTask/NewContactViewController.swift"
+                  timestampString = "496906454.411948"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "400">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "_709_1_SecondProjectTask.NewContactViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;_709_1_SecondProjectTask.NewContactViewController&gt;"
+                  moduleName = "1709_1_SecondProjectTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///WIP-IOS/ios-journey/1709_1_SecondProjectTask/1709_1_SecondProjectTask/NewContactViewController.swift"
+                  timestampString = "496906454.413096"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "330">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

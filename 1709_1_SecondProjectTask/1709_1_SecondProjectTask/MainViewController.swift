@@ -13,11 +13,10 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, MFMe
     
     // MARK: Properties
     
-    @IBOutlet weak var mobileOperatorSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var creditMTelSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var creditBHTelecomSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var chooseContactButton: UIButton!
-    @IBOutlet weak var chargeAccount: UIButton!
+    @IBOutlet weak var mobileOperatorSegmentedControl: DPSegmentedControl!
+    @IBOutlet weak var creditSegmentedControl: DPSegmentedControl!
+    @IBOutlet weak var chooseContactButton: DPButton!
+    @IBOutlet weak var chargeAccount: DPButton!
     
     
     var contact: Contact?
@@ -29,6 +28,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, MFMe
     let receiverBHTelecomNumber = "0611171"
     let prefixForMTelMessage = "D"
     let prefixForBHTelecomMessage = ""
+    
     let chargesMTel = [2,3,4,5,10]
     let chargesBHTelecom = [1,2,5,10,20]
     
@@ -38,81 +38,28 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, MFMe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupDefaultSegmentedControlsState()
+        // Set up SegmentedControl for credit charges, by default it is MTel
+        setupCreditChargeSegmentedControl(creditSegmentedControl, creditCharges: chargesMTel)
     }
     
-    // Mark: Actions
-    
-    func setupDefaultSegmentedControlsState() {
-        //Let's custom style, colorize entire App
-        
-        // Set Navigation bar tint / background color
-        let navigationBarAppearance = UINavigationBar.appearance()
-        
-        navigationBarAppearance.barTintColor = Contact.themeColor
-        
-        chooseContactButton.cornerRadius = 4
-        chooseContactButton.borderWidth = 1
-        chooseContactButton.borderColor = Contact.themeColor
-        chooseContactButton.tintColor = Contact.themeColor
-        
-        chargeAccount.cornerRadius = 4
-        chargeAccount.borderWidth = 1
-        chargeAccount.borderColor = Contact.themeColor
-        chargeAccount.tintColor = Contact.themeColor
-        
-        mobileOperatorSegmentedControl.cornerRadius = 4
-        mobileOperatorSegmentedControl.borderWidth = 1
-        mobileOperatorSegmentedControl.borderColor = Contact.themeColor
-        mobileOperatorSegmentedControl.tintColor = Contact.themeColor
-        
-        creditMTelSegmentedControl.cornerRadius = 4
-        creditMTelSegmentedControl.borderWidth = 1
-        creditMTelSegmentedControl.borderColor = Contact.themeColor
-        creditMTelSegmentedControl.tintColor = Contact.themeColor
-        
-        creditBHTelecomSegmentedControl.cornerRadius = 4
-        creditBHTelecomSegmentedControl.borderWidth = 1
-        creditBHTelecomSegmentedControl.borderColor = Contact.themeColor
-        creditBHTelecomSegmentedControl.tintColor = Contact.themeColor
-         
-        creditMTelSegmentedControl.hidden = false
-        creditBHTelecomSegmentedControl.hidden = true
-    }
-    
-    // A wrapper function to indicate whether or not a text message can be sent from the user's device
-    func canSendText() -> Bool {
-        return MFMessageComposeViewController.canSendText()
-    }
-    
-    // MFMessageComposeViewControllerDelegate callback - dismisses the view controller when the user is finished with it
-    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
+    // MARK: Actions
     
     // Get selected mobile operator and toggle creditCharge segment controls
     @IBAction func chooseOperator(sender: UISegmentedControl) {
         mobileOperater = sender.selectedSegmentIndex
         
         //reset all credit charges to default
-        creditMTelSegmentedControl.selectedSegmentIndex = 0
-        creditBHTelecomSegmentedControl.selectedSegmentIndex = 1
-        
+        creditSegmentedControl.selectedSegmentIndex = 0
         
         switch sender.selectedSegmentIndex {
             case 0:
-                creditMTelSegmentedControl.hidden = false
-                creditBHTelecomSegmentedControl.hidden = true
-                mobileCharge = creditMTelSegmentedControl.selectedSegmentIndex
+                setupCreditChargeSegmentedControl(creditSegmentedControl, creditCharges: chargesMTel)
+                mobileCharge = creditSegmentedControl.selectedSegmentIndex
             case 1:
-                creditMTelSegmentedControl.hidden = true
-                creditBHTelecomSegmentedControl.hidden = false
-                mobileCharge = creditBHTelecomSegmentedControl.selectedSegmentIndex
+                setupCreditChargeSegmentedControl(creditSegmentedControl, creditCharges: chargesBHTelecom)
             default:
-                break
+            break
         }
-        
     }
     
     //Get selected mobile charge amount for MTel
@@ -125,10 +72,10 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, MFMe
         mobileCharge = sender.selectedSegmentIndex
     }
     
-    //Generate M-Commerce message
+    // MARK: Generate M-Commerce message
     @IBAction func generateMCommerceMessage(sender: UIButton) {
         guard selectedContact != nil else {
-            showAlert()
+            AlertView.showAlert(self)
             return;
         }
         var messageBody = ""
@@ -142,19 +89,17 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, MFMe
                 messageBody += String(chargesBHTelecom[mobileCharge])
                 messageBody += " " + receiverBHTelecomNumber
             default:
-            
             break;
         }
         
         // Checking point to confirm it will work well on devices with SIM card
-        print(messageBody + " for recipient " + messageRecipient)
+        AlertView.showAlert(self, title: "SMS Poruka", message: messageBody + " for recipient " + messageRecipient)
         
         
         // Simulator is not able to send SMS so we see this message instead
         if !canSendText() {
-            print("Uredjaj ne moze poslati SMS")
+            AlertView.showAlert(self, title: "Greška", message: "Uređaj ne moze poslati SMS")
         } else {
-        
             let messageVC = MFMessageComposeViewController()
         
             messageVC.body = messageBody;
@@ -165,25 +110,20 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, MFMe
         }
     }
     
-    //Alert function
-    func showAlert() {
-        let alertController = UIAlertController(title: "Napomena", message: "Niste odabrali kontakt", preferredStyle: .Alert)
-        
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alertController.addAction(defaultAction)
-        
-        presentViewController(alertController, animated: true, completion: nil)
+    // A wrapper function to indicate whether or not a text message can be sent from the user's device
+    func canSendText() -> Bool {
+        return MFMessageComposeViewController.canSendText()
     }
-
     
-    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+    // MFMessageComposeViewControllerDelegate callback - dismisses the view controller when the user is finished with it
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "selectContact" {
-            let selectedContact = segue.destinationViewController as! ContactTableViewController
-            selectedContact.delegate = self
+            let selectedNewContact = segue.destinationViewController as! ContactTableViewController
+            selectedNewContact.delegate = self
         }
     }
     
@@ -191,9 +131,9 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, MFMe
     func fillContactForMessaging(controller: ContactTableViewController, contact: Contact) {
         selectedContact = contact
         var tempNameOrPhone: String?
-        let contactPhoneNumber = Contact.phoneInternationalPrefix + selectedContact!.phoneNumber
-        if let contactName = selectedContact!.name where selectedContact!.name != "" {
-            tempNameOrPhone = contactName
+        let contactPhoneNumber = Contact.phoneInternationalPrefix + contact.phoneNumber
+        if let contact = contact.name where contact != "" {
+            tempNameOrPhone = contact
         } else {
             tempNameOrPhone = contactPhoneNumber
         }
@@ -201,6 +141,16 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, MFMe
         chooseContactButton.setTitle(tempNameOrPhone, forState: .Normal)
         chooseContactButton.contentHorizontalAlignment = .Center
         controller.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    // MARK: Set up UISegmentedControl default values
+    func setupCreditChargeSegmentedControl(segmentedControl: UISegmentedControl, creditCharges: [Int]) {
+        segmentedControl.removeAllSegments()
+        for i in creditCharges {
+            let currentIndex = creditCharges.indexOf(i)
+            segmentedControl.insertSegmentWithTitle(String(i) + " KM", atIndex: currentIndex!, animated: false)
+        }
+        segmentedControl.selectedSegmentIndex = 1
     }
 
 }

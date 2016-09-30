@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		BB3D81951D8F407400FFEDA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB3D81931D8F3FEB00FFEDA4 /* Main.storyboard */; };
 		BB3D81971D8F415100FFEDA4 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3D81961D8F415100FFEDA4 /* ContactTableViewController.swift */; };
+		BBC3B9611D9E3A3F00197E88 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC3B9601D9E3A3F00197E88 /* AlertView.swift */; };
+		BBC3B9631D9E424E00197E88 /* DPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC3B9621D9E424E00197E88 /* DPTextField.swift */; };
+		BBC3B9651D9E5C4D00197E88 /* DPSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC3B9641D9E5C4D00197E88 /* DPSegmentedControl.swift */; };
+		BBCF11101D9C38E200D4C534 /* DPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCF110F1D9C38E200D4C534 /* DPButton.swift */; };
 		BBD0CFB01D8EE8B2004F44AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD0CFAF1D8EE8B2004F44AC /* AppDelegate.swift */; };
 		BBD0CFB21D8EE8B2004F44AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD0CFB11D8EE8B2004F44AC /* MainViewController.swift */; };
 		BBD0CFB71D8EE8B2004F44AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBD0CFB61D8EE8B2004F44AC /* Assets.xcassets */; };
@@ -21,6 +25,10 @@
 /* Begin PBXFileReference section */
 		BB3D81941D8F3FEB00FFEDA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = 1709_1_SecondProjectTask/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB3D81961D8F415100FFEDA4 /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
+		BBC3B9601D9E3A3F00197E88 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		BBC3B9621D9E424E00197E88 /* DPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPTextField.swift; sourceTree = "<group>"; };
+		BBC3B9641D9E5C4D00197E88 /* DPSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPSegmentedControl.swift; sourceTree = "<group>"; };
+		BBCF110F1D9C38E200D4C534 /* DPButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPButton.swift; sourceTree = "<group>"; };
 		BBD0CFAC1D8EE8B2004F44AC /* 1709_1_SecondProjectTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1709_1_SecondProjectTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD0CFAF1D8EE8B2004F44AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBD0CFB11D8EE8B2004F44AC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +78,10 @@
 				BBD0CFC11D8F1957004F44AC /* Contact.swift */,
 				BBD0CFCB1D8F3C8F004F44AC /* NewContactViewController.swift */,
 				BBD0CFB61D8EE8B2004F44AC /* Assets.xcassets */,
+				BBC3B9641D9E5C4D00197E88 /* DPSegmentedControl.swift */,
+				BBC3B9621D9E424E00197E88 /* DPTextField.swift */,
+				BBCF110F1D9C38E200D4C534 /* DPButton.swift */,
+				BBC3B9601D9E3A3F00197E88 /* AlertView.swift */,
 				BBD0CFB81D8EE8B2004F44AC /* LaunchScreen.storyboard */,
 				BBD0CFBB1D8EE8B2004F44AC /* Info.plist */,
 			);
@@ -109,6 +121,7 @@
 					BBD0CFAB1D8EE8B2004F44AC = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = LAP64KC2CP;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -149,9 +162,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBD0CFCA1D8F3BBA004F44AC /* ContactTableViewCell.swift in Sources */,
+				BBCF11101D9C38E200D4C534 /* DPButton.swift in Sources */,
+				BBC3B9631D9E424E00197E88 /* DPTextField.swift in Sources */,
 				BBD0CFC21D8F1957004F44AC /* Contact.swift in Sources */,
 				BB3D81971D8F415100FFEDA4 /* ContactTableViewController.swift in Sources */,
 				BBD0CFB21D8EE8B2004F44AC /* MainViewController.swift in Sources */,
+				BBC3B9651D9E5C4D00197E88 /* DPSegmentedControl.swift in Sources */,
+				BBC3B9611D9E3A3F00197E88 /* AlertView.swift in Sources */,
 				BBD0CFCC1D8F3C8F004F44AC /* NewContactViewController.swift in Sources */,
 				BBD0CFB01D8EE8B2004F44AC /* AppDelegate.swift in Sources */,
 			);
@@ -273,6 +290,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hamzaze.-709-1-SecondProjectTask";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -284,6 +302,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hamzaze.-709-1-SecondProjectTask";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

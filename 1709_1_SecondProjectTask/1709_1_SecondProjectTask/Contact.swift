@@ -12,33 +12,21 @@ import UIKit
 class Contact: NSObject {
     
     // MARK: Properties
-    
     var name: String?
     var phoneNumber: String
     // Phone number prefix for Bosnia and Herzegovina, ie. +387
     static let phoneInternationalPrefix = "+387"
     
-    //Theme colors
-    
-    // Blue
-    static var themeColor1 = UIColor(red: 0, green: 122, blue: 255)
-    
-    // Deep Orange
-    static var themeColor = UIColor(red: 255, green: 87, blue: 34)
-    
     // MARK: Archiving Paths
-    
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("contacts1")
     
     // MARK: Types
-    
     struct PropertyKey {
         static let nameKey = "name"
         static let phoneNumberKey = "phoneNumber"
     }
 
-    
     //initialization
     init?(name: String?, phoneNumber: String) {
         if phoneNumber.isEmpty {
@@ -46,7 +34,6 @@ class Contact: NSObject {
         }
         self.name = name
         self.phoneNumber = phoneNumber
-        
         super.init()
     }
     

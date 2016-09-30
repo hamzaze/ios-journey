@@ -13,9 +13,4 @@ class ContactTableViewCell: UITableViewCell {
     // MARK: Properties
     @IBOutlet weak var textlabel: UILabel!
     @IBOutlet weak var alternativeTextLabel: UILabel!
-    
-    
-    
-    
-    
 }
