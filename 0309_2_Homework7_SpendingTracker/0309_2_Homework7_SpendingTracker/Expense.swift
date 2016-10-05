@@ -12,7 +12,7 @@ class Expense: NSObject, NSCoding {
     
     // MARK: Properties
     
-    var expenseName: Double
+    var expenseAmount: Double
     var expenseDescription: String?
     var date: String
     
@@ -33,13 +33,13 @@ class Expense: NSObject, NSCoding {
     
     // MARK: Initialization
     
-    init?(expenseName: Double, expenseDescription: String?, date: String) {
+    init?(expenseAmount: Double, expenseDescription: String?, date: String) {
         // Initialization should fail if there is no name or if the rating is negative.
-        if expenseName == 0.00 {
+        if expenseAmount == 0.00 {
             return nil
         }
         // Initialize stored properties.
-        self.expenseName = expenseName
+        self.expenseAmount = expenseAmount
         self.expenseDescription = expenseDescription
         self.date = date
         
@@ -47,7 +47,7 @@ class Expense: NSObject, NSCoding {
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(expenseName, forKey: PropertyKey.nameKey)
+        aCoder.encodeObject(expenseAmount, forKey: PropertyKey.nameKey)
         aCoder.encodeObject(expenseDescription, forKey: PropertyKey.descriptionKey)
         aCoder.encodeObject(date, forKey: PropertyKey.dateKey)
     }
@@ -58,6 +58,6 @@ class Expense: NSObject, NSCoding {
         let date = aDecoder.decodeObjectForKey(PropertyKey.dateKey) as! String
         
         // Must call designated initializer.
-        self.init(expenseName: name, expenseDescription: expenseDescription, date: date)
+        self.init(expenseAmount: name, expenseDescription: expenseDescription, date: date)
     }
 }

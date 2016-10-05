@@ -59,7 +59,7 @@
                     <navigationItem key="navigationItem" title="Expenses List" id="3J3-mA-tZd">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zll-iJ-fZc">
                             <connections>
-                                <segue destination="il7-zW-nV1" kind="presentation" identifier="AddItem" id="On6-SG-ppV"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="AddItem" id="93U-LA-9dD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -210,26 +210,8 @@
             </objects>
             <point key="canvasLocation" x="-279" y="437"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="2r0-aG-pWg">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="il7-zW-nV1" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g5Q-V9-6la">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="LfA-8Q-f67"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eVC-fh-XaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1299" y="836"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YNK-o1-Kbq"/>
+        <segue reference="93U-LA-9dD"/>
     </inferredMetricsTieBreakers>
 </document>

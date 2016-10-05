@@ -1,8 +1,8 @@
 //
 //  ExpenseViewController.swift
-//  2708_1_Homework6_FoodTrackerTableView
+//  0309_2_Homework7_SpendingTracker
 //
-//  Created by Hamza on 28/08/16.
+//  Created by Hamza on 04/09/16.
 //  Copyright © 2016 Hamza. All rights reserved.
 //
 
@@ -29,14 +29,14 @@ class ExpenseViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         prepareLayoutsForFields()
         // Set up views if editing an existing Expense.
         if let expense = expense {
-            navigationItem.title = String(expense.expenseName)
-            nameTextField.text = String(expense.expenseName)
+            navigationItem.title = String(expense.expenseAmount)
+            nameTextField.text = String(expense.expenseAmount)
             descriptionTextView.text = expense.expenseDescription
             selectedDate.text = expense.date
         }
         
         // Enable the Save button only if the text field has a valid Expense name.
-        checkValidExpenseName()
+        checkValidexpenseAmount()
     }
     
     // MARK: UITextFieldDelegate
@@ -49,7 +49,7 @@ class ExpenseViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     func textFieldDidEndEditing(textField: UITextField) {
         // Disable the Save button while editing.        
-        checkValidExpenseName()
+        checkValidexpenseAmount()
         let text = textField.text ?? ""
         if Double(text) != nil {
             saveButton.enabled = !text.isEmpty
@@ -60,7 +60,7 @@ class ExpenseViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         navigationItem.title = textField.text
     }
     
-    func checkValidExpenseName() {
+    func checkValidexpenseAmount() {
         // Disable the Save button if the text field is empty.
         let text = nameTextField.text ?? ""
         saveButton.enabled = !text.isEmpty
@@ -116,7 +116,7 @@ class ExpenseViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             let date = selectedDate.text ?? ""
             
             // Set the Expense to be passed to ExpenseTableViewController after the unwind segue.
-            expense = Expense(expenseName: name!, expenseDescription: description, date: date)
+            expense = Expense(expenseAmount: name!, expenseDescription: description, date: date)
         }
     }
     

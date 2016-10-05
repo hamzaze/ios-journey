@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BBD0CFAB1D8EE8B2004F44AC"
-               BuildableName = "1709_1_SecondProjectTask.app"
-               BlueprintName = "1709_1_SecondProjectTask"
-               ReferencedContainer = "container:1709_1_SecondProjectTask.xcodeproj">
+               BlueprintIdentifier = "BBABF7C21DA5287900B60EE2"
+               BuildableName = "0110_1_NetworkingJSON.app"
+               BlueprintName = "0110_1_NetworkingJSON"
+               ReferencedContainer = "container:0110_1_NetworkingJSON.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BBD0CFAB1D8EE8B2004F44AC"
-            BuildableName = "1709_1_SecondProjectTask.app"
-            BlueprintName = "1709_1_SecondProjectTask"
-            ReferencedContainer = "container:1709_1_SecondProjectTask.xcodeproj">
+            BlueprintIdentifier = "BBABF7C21DA5287900B60EE2"
+            BuildableName = "0110_1_NetworkingJSON.app"
+            BlueprintName = "0110_1_NetworkingJSON"
+            ReferencedContainer = "container:0110_1_NetworkingJSON.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BBD0CFAB1D8EE8B2004F44AC"
-            BuildableName = "1709_1_SecondProjectTask.app"
-            BlueprintName = "1709_1_SecondProjectTask"
-            ReferencedContainer = "container:1709_1_SecondProjectTask.xcodeproj">
+            BlueprintIdentifier = "BBABF7C21DA5287900B60EE2"
+            BuildableName = "0110_1_NetworkingJSON.app"
+            BlueprintName = "0110_1_NetworkingJSON"
+            ReferencedContainer = "container:0110_1_NetworkingJSON.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BBD0CFAB1D8EE8B2004F44AC"
-            BuildableName = "1709_1_SecondProjectTask.app"
-            BlueprintName = "1709_1_SecondProjectTask"
-            ReferencedContainer = "container:1709_1_SecondProjectTask.xcodeproj">
+            BlueprintIdentifier = "BBABF7C21DA5287900B60EE2"
+            BuildableName = "0110_1_NetworkingJSON.app"
+            BlueprintName = "0110_1_NetworkingJSON"
+            ReferencedContainer = "container:0110_1_NetworkingJSON.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

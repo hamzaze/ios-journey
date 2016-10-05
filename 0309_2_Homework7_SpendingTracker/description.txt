@@ -1,0 +1,12 @@
+Extra Homework
+Due date: 7.9.2016 20.00H
+ 
+You’ve been hired to write an app that will help you track amount of money you spend on a particular day.
+ 
+The app should allow you to:
+1. enter amount spent
+2. description of the expense
+3. Date of the expense (if you haven’t used date time pickers check please see this tutorial http://sourcefreeze.com/ios-datepicker-tutorial-uidatepicker-using-swift/ or assume that date is now let today = NSDate())
+4. You should be able to list expenses – bonus points for listing expenses per day (i.e where header of each section will be date)
+5. You should be able to edit expense and to view expense
+6. You should be able to persist data

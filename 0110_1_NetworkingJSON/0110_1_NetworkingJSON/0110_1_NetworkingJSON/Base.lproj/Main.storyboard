@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0N5-ra-57L">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Users Table View Controller-->
+        <scene sceneID="UuL-63-x04">
+            <objects>
+                <tableViewController id="btW-IT-jdZ" customClass="UsersTableViewController" customModule="_110_1_NetworkingJSON" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" id="KvO-OA-HaT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" textLabel="bvO-Xj-JnO" detailTextLabel="AZU-hj-3qR" rowHeight="45" style="IBUITableViewCellStyleSubtitle" id="7od-K0-zId" customClass="UserTableViewCell" customModule="_110_1_NetworkingJSON" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7od-K0-zId" id="7pO-N5-u0b">
+                                    <frame key="frameInset" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bvO-Xj-JnO">
+                                            <frame key="frameInset" minX="15" minY="4" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AZU-hj-3qR">
+                                            <frame key="frameInset" minX="15" minY="25" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="userNameLabel" destination="bvO-Xj-JnO" id="wnD-Lx-7uV"/>
+                                    <outlet property="userStreetLabel" destination="AZU-hj-3qR" id="X6O-Fu-00I"/>
+                                    <segue destination="U51-3c-fh1" kind="show" identifier="showUserPosts" id="hvJ-sA-NtL"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="btW-IT-jdZ" id="m8E-8l-YN7"/>
+                            <outlet property="delegate" destination="btW-IT-jdZ" id="upw-Eu-cE9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="uGp-y8-bzq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="8fd-Zs-Wpi">
+                            <connections>
+                                <action selector="refreshUserList:" destination="btW-IT-jdZ" id="k2G-Ez-5mp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cAN-1P-K9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="57" y="28"/>
+        </scene>
+        <!--USER'S POSTS-->
+        <scene sceneID="Ijs-bJ-GIN">
+            <objects>
+                <tableViewController id="U51-3c-fh1" customClass="PostsTableViewController" customModule="_110_1_NetworkingJSON" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="0bK-kq-1s9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" textLabel="wWI-yt-Soo" detailTextLabel="h75-Ok-VPv" rowHeight="90" style="IBUITableViewCellStyleSubtitle" id="VAK-hc-trP" customClass="PostTableViewCell" customModule="_110_1_NetworkingJSON" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VAK-hc-trP" id="Mm6-5c-xvO">
+                                    <frame key="frameInset" width="375" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wWI-yt-Soo">
+                                            <frame key="frameInset" minX="15" minY="27" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h75-Ok-VPv">
+                                            <frame key="frameInset" minX="15" minY="48" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="postBodyLabel" destination="h75-Ok-VPv" id="qY2-S7-Xl7"/>
+                                    <outlet property="postNameLabel" destination="wWI-yt-Soo" id="nDp-da-JuK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="U51-3c-fh1" id="Xox-Nz-Sbl"/>
+                            <outlet property="delegate" destination="U51-3c-fh1" id="xlh-85-Qg3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="USER'S POSTS" id="JlO-jI-rCs"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kXi-MM-gIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="759" y="28"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PWO-8s-Uwp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0N5-ra-57L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JZp-z8-mu8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="btW-IT-jdZ" kind="relationship" relationship="rootViewController" id="fE3-ph-wX6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aMc-ve-45k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-695.20000000000005" y="28.335832083958024"/>
+        </scene>
+    </scenes>
+</document>

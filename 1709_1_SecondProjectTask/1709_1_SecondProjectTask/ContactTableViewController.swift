@@ -40,11 +40,6 @@ class ContactTableViewController: UITableViewController, newContactControllerDel
         //self.navigationItem.setRightBarButtonItems([button2, button3], animated: true)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -76,18 +71,16 @@ class ContactTableViewController: UITableViewController, newContactControllerDel
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
-            cell.accessoryType = .Checkmark
-            cell.backgroundColor = UIColor(red: 220, green: 226, blue: 234)
-            delegate?.fillContactForMessaging(self, contact: contacts[indexPath.row])
-        }
-    }
-    
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath){
         if let cell = tableView.cellForRowAtIndexPath(indexPath) {
             cell.accessoryType = .None
             cell.backgroundColor = UIColor.clearColor()
+        }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        if tableView.cellForRowAtIndexPath(indexPath) != nil {
+            delegate?.fillContactForMessaging(self, contact: contacts[indexPath.row])
         }
     }
     
@@ -135,13 +128,34 @@ class ContactTableViewController: UITableViewController, newContactControllerDel
     
     // MARK: required method to meet a protocol from NewContactViewController
     func addNewContactToContacts(controller: NewContactViewController, contact: Contact){
-            // Add a new contact.
-            let newIndexPath = NSIndexPath(forRow: contacts.count, inSection: 0)
-            contacts.append(contact)
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        // Add a new contact.
+        let newIndexPath = NSIndexPath(forRow: 0, inSection: 0)
+        contacts.insert(contact, atIndex: 0)
+        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        
+        //Clear all row checkmarks
+        clearAllRowCheckmark()
+        
+        if let cell = tableView.cellForRowAtIndexPath(newIndexPath) {
+            cell.accessoryType = .Checkmark
+            cell.backgroundColor = UIColor(red: 220, green: 226, blue: 234)
+        }
         
         saveContacts()
         controller.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func clearAllRowCheckmark() {
+        var i = 0
+        while i < contacts.count{
+            let newIndexPath = NSIndexPath(forRow: i, inSection: 0)
+            
+            if let cell = tableView.cellForRowAtIndexPath(newIndexPath) {
+                cell.accessoryType = .None
+                cell.backgroundColor = UIColor.clearColor()
+            }
+            i += 1
+        }
     }
     
     // MARK: Actions

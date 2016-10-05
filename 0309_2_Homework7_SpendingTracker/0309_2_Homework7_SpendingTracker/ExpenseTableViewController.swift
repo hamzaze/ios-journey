@@ -13,6 +13,7 @@ class ExpenseTableViewController: UITableViewController {
     // MARK: Properties
     
     var Expenses = [Expense]()
+    var expensesDaily: [String:[Int:[Expense]]] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +32,11 @@ class ExpenseTableViewController: UITableViewController {
     }
     
     func loadSampleExpenses() {
-        let Expense1 = Expense(expenseName: 20.5, expenseDescription: "Food and School", date: "05-09-2016 18:32")!
+        let Expense1 = Expense(expenseAmount: 20.5, expenseDescription: "Food and School", date: "05-09-2016 18:32")!
         
-        let Expense2 = Expense(expenseName: 102.00, expenseDescription: "Bills for Mobile/Internet, food, transportation", date: "05-09-2016 21:20")!
+        let Expense2 = Expense(expenseAmount: 102.00, expenseDescription: "Bills for Mobile/Internet, food, transportation", date: "05-09-2016 21:20")!
         
-        let Expense3 = Expense(expenseName: 16.00, expenseDescription: "Bills for Mobile/Internet, food, transportation", date: "06-09-2016 10:20")!
+        let Expense3 = Expense(expenseAmount: 16.00, expenseDescription: "Bills for Mobile/Internet, food, transportation", date: "06-09-2016 10:20")!
         
         Expenses += [Expense1, Expense2, Expense3]
     }
@@ -43,11 +44,11 @@ class ExpenseTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return expensesDaily.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Expenses.count
+        return 1
     }
 
     
@@ -62,7 +63,7 @@ class ExpenseTableViewController: UITableViewController {
         
         let dateFullString = stringToDateString(Expense.date)
 
-        cell.nameLabel.text = String(Expense.expenseName) + " " + Expense.currencySign
+        cell.nameLabel.text = String(Expense.expenseAmount) + " " + Expense.currencySign
         cell.dateLabel.text = dateFullString
         cell.descriptionLabel.numberOfLines = 0
         [cell.descriptionLabel .sizeToFit()]
