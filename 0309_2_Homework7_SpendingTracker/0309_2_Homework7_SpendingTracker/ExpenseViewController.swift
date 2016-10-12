@@ -41,20 +41,20 @@ class ExpenseViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     // MARK: UITextFieldDelegate
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
         textField.resignFirstResponder()
         return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         // Disable the Save button while editing.        
         checkValidexpenseAmount()
         let text = textField.text ?? ""
         if Double(text) != nil {
-            saveButton.enabled = !text.isEmpty
+            saveButton.isEnabled = !text.isEmpty
         } else {
-            saveButton.enabled = false
+            saveButton.isEnabled = false
             showAlert()
         }
         navigationItem.title = textField.text
@@ -63,16 +63,16 @@ class ExpenseViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     func checkValidexpenseAmount() {
         // Disable the Save button if the text field is empty.
         let text = nameTextField.text ?? ""
-        saveButton.enabled = !text.isEmpty
+        saveButton.isEnabled = !text.isEmpty
     }
     
     func showAlert() {
-        let alertController = UIAlertController(title: "Not a valid price format", message: "You\'re required to enter a valid price as an expense?", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Not a valid price format", message: "You\'re required to enter a valid price as an expense?", preferredStyle: .alert)
         
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(defaultAction)
         
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
     func prepareLayoutsForFields() {
@@ -80,36 +80,36 @@ class ExpenseViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         let fieldCornerRadius: CGFloat = 3.0
         let myColor : UIColor = UIColor( red: 0.5, green: 0.5, blue:0.5, alpha: 1.0 )
         
-        descriptionTextView.layer.borderColor = myColor.CGColor
+        descriptionTextView.layer.borderColor = myColor.cgColor
         descriptionTextView.layer.borderWidth = fieldBorderWidth
         descriptionTextView.layer.cornerRadius = fieldCornerRadius
-        nameTextField.layer.borderColor = myColor.CGColor
+        nameTextField.layer.borderColor = myColor.cgColor
         nameTextField.layer.borderWidth = fieldBorderWidth
         nameTextField.layer.cornerRadius = fieldCornerRadius
         
-        let currentDate = NSDate()
-        let dateFormatter = NSDateFormatter()
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-        let strDate = dateFormatter.stringFromDate(currentDate)
+        let strDate = dateFormatter.string(from: currentDate)
         selectedDate.text = strDate    
     }
     
     // MARK: Navigation
     
-    @IBAction func cancel(sender: UIBarButtonItem) {
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
         let isPresentingInAddExpenseMode = presentingViewController is UINavigationController
         if isPresentingInAddExpenseMode {
-            dismissViewControllerAnimated(true, completion: nil)
+            dismiss(animated: true, completion: nil)
         } else {
-            navigationController!.popViewControllerAnimated(true)
+            navigationController!.popViewController(animated: true)
         }
         
     }
     
     
     // This method lets you configure a view controller before it's presented.
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if saveButton === sender {
             let name = Double(nameTextField.text ?? "0.00")
             let description = descriptionTextView.text ?? ""
@@ -122,10 +122,10 @@ class ExpenseViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     // MARK: Actions
     
-    @IBAction func datePickerAction(sender: AnyObject) {
-        let dateFormatter = NSDateFormatter()
+    @IBAction func datePickerAction(_ sender: AnyObject) {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-        let strDate = dateFormatter.stringFromDate(dateDatePicker.date)
+        let strDate = dateFormatter.string(from: dateDatePicker.date)
         selectedDate.text = strDate
     }
 }

@@ -19,7 +19,7 @@ class ExpenseTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // Use the edit button item provided by the table view controller
-        navigationItem.leftBarButtonItem = editButtonItem()
+        navigationItem.leftBarButtonItem = editButtonItem
         
         // Load any saved Expenses, otherwise load sample date.
         if let savedExpenses = loadExpenses() {
@@ -43,23 +43,23 @@ class ExpenseTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return expensesDaily.count
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "ExpenseTableViewCell"
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ExpenseTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ExpenseTableViewCell
         
         // Fetches the appropriate Expense for the data source layout.
-        let Expense = Expenses[indexPath.row]
+        let Expense = Expenses[(indexPath as NSIndexPath).row]
         
         let dateFullString = stringToDateString(Expense.date)
 
@@ -76,7 +76,7 @@ class ExpenseTableViewController: UITableViewController {
 
     
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
@@ -84,13 +84,13 @@ class ExpenseTableViewController: UITableViewController {
 
     
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             // Delete the row from the data source
-            Expenses.removeAtIndex(indexPath.row)
+            Expenses.remove(at: (indexPath as NSIndexPath).row)
             saveExpenses()
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
@@ -98,13 +98,13 @@ class ExpenseTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetail" {
-            let ExpenseDetailViewController = segue.destinationViewController as! ExpenseViewController
+            let ExpenseDetailViewController = segue.destination as! ExpenseViewController
             // Get the cell that generated this segue
             if let selectedExpenseCell = sender as? ExpenseTableViewCell {
-                let indexPath = tableView.indexPathForCell(selectedExpenseCell)!
-                let selectedExpense = Expenses[indexPath.row]
+                let indexPath = tableView.indexPath(for: selectedExpenseCell)!
+                let selectedExpense = Expenses[(indexPath as NSIndexPath).row]
                 ExpenseDetailViewController.expense = selectedExpense
             }
         } else if segue.identifier == "AddItem" {
@@ -114,17 +114,17 @@ class ExpenseTableViewController: UITableViewController {
     
     
     
-    @IBAction func unwindToExpenseList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? ExpenseViewController, Expense = sourceViewController.expense {
+    @IBAction func unwindToExpenseList(_ sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ExpenseViewController, let Expense = sourceViewController.expense {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing Expense
-                Expenses[selectedIndexPath.row] = Expense
-                tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+                Expenses[(selectedIndexPath as NSIndexPath).row] = Expense
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
             } else {
                 // Add a new Expense.
-                let newIndexPath = NSIndexPath(forRow: Expenses.count, inSection: 0)
+                let newIndexPath = IndexPath(row: Expenses.count, section: 0)
                 Expenses.append(Expense)
-                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+                tableView.insertRows(at: [newIndexPath], with: .bottom)
             }
             // Save the Expenses.
             saveExpenses()
@@ -142,16 +142,16 @@ class ExpenseTableViewController: UITableViewController {
     }
     
     func loadExpenses() -> [Expense]? {
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(Expense.ArchiveURL.path!) as? [Expense]
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Expense.ArchiveURL.path!) as? [Expense]
     }
     
-    func stringToDateString(string: String) -> String {
-        let dateFormatter = NSDateFormatter()
+    func stringToDateString(_ string: String) -> String {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-        let dateFormatter1 = NSDateFormatter()
+        let dateFormatter1 = DateFormatter()
         dateFormatter1.dateFormat = "dd.MM.yyyy"
-        let date = dateFormatter.dateFromString(string)
-        let newDateString = dateFormatter1.stringFromDate(date!)
+        let date = dateFormatter.date(from: string)
+        let newDateString = dateFormatter1.string(from: date!)
         return newDateString
     }
 

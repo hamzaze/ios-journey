@@ -144,6 +144,7 @@
 					BB836A5B1D6DABE30078F1D4 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = LAP64KC2CP;
+						LastSwiftMigration = 0800;
 					};
 					BB836A6F1D6DABE40078F1D4 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -334,6 +335,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzaze.0309_2_Homework7_SpendingTracker;
 				PRODUCT_NAME = 0309_2_Homework7_SpendingTracker;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -345,6 +347,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzaze.0309_2_Homework7_SpendingTracker;
 				PRODUCT_NAME = 0309_2_Homework7_SpendingTracker;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

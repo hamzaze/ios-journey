@@ -20,8 +20,8 @@ class Expense: NSObject, NSCoding {
     
     // MARK: Archiving Paths
     
-    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("expenses")
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("expenses")
     
     // MARK: Types
     
@@ -46,16 +46,16 @@ class Expense: NSObject, NSCoding {
         super.init()
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(expenseAmount, forKey: PropertyKey.nameKey)
-        aCoder.encodeObject(expenseDescription, forKey: PropertyKey.descriptionKey)
-        aCoder.encodeObject(date, forKey: PropertyKey.dateKey)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(expenseAmount, forKey: PropertyKey.nameKey)
+        aCoder.encode(expenseDescription, forKey: PropertyKey.descriptionKey)
+        aCoder.encode(date, forKey: PropertyKey.dateKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! Double
-        let expenseDescription = aDecoder.decodeObjectForKey(PropertyKey.descriptionKey) as! String
-        let date = aDecoder.decodeObjectForKey(PropertyKey.dateKey) as! String
+        let name = aDecoder.decodeObject(forKey: PropertyKey.nameKey) as! Double
+        let expenseDescription = aDecoder.decodeObject(forKey: PropertyKey.descriptionKey) as! String
+        let date = aDecoder.decodeObject(forKey: PropertyKey.dateKey) as! String
         
         // Must call designated initializer.
         self.init(expenseAmount: name, expenseDescription: expenseDescription, date: date)
