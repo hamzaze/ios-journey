@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB1B39FE1DC36293003CCF09 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B39FD1DC36293003CCF09 /* UserViewController.swift */; };
+		BB3CC59C1DC3CE4E00803BD1 /* RadialGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3CC59B1DC3CE4E00803BD1 /* RadialGradientView.swift */; };
 		BB78ACE71DC0D9BE00007BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78ACE61DC0D9BE00007BB8 /* AppDelegate.swift */; };
 		BB78ACE91DC0D9BE00007BB8 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78ACE81DC0D9BE00007BB8 /* UsersViewController.swift */; };
 		BB78ACEC1DC0D9BE00007BB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB78ACEA1DC0D9BE00007BB8 /* Main.storyboard */; };
@@ -19,9 +21,13 @@
 		BB78AD0E1DC0EA7300007BB8 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78ACFB1DC0DEB900007BB8 /* Company.swift */; };
 		BB78AD0F1DC0EA7300007BB8 /* Geo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78ACFC1DC0DEB900007BB8 /* Geo.swift */; };
 		BB78AD101DC0EA7300007BB8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB78ACFD1DC0DEB900007BB8 /* User.swift */; };
+		BB9FBE951DC9BA07008D0A3E /* HHAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9FBE941DC9BA07008D0A3E /* HHAnnotation.swift */; };
+		BB9FBE971DCA07A8008D0A3E /* HHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9FBE961DCA07A8008D0A3E /* HHButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB1B39FD1DC36293003CCF09 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		BB3CC59B1DC3CE4E00803BD1 /* RadialGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadialGradientView.swift; sourceTree = "<group>"; };
 		BB78ACE31DC0D9BE00007BB8 /* 2210_1_MapKit+Autolayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2210_1_MapKit+Autolayout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB78ACE61DC0D9BE00007BB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB78ACE81DC0D9BE00007BB8 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +42,8 @@
 		BB78AD021DC0E04B00007BB8 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		BB78AD041DC0E1FA00007BB8 /* ServerComunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerComunication.swift; sourceTree = "<group>"; };
 		BB78AD071DC0E64500007BB8 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		BB9FBE941DC9BA07008D0A3E /* HHAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHAnnotation.swift; sourceTree = "<group>"; };
+		BB9FBE961DCA07A8008D0A3E /* HHButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,7 @@
 				BB78ACF91DC0DEA000007BB8 /* Methods */,
 				BB78ACE61DC0D9BE00007BB8 /* AppDelegate.swift */,
 				BB78ACE81DC0D9BE00007BB8 /* UsersViewController.swift */,
+				BB1B39FD1DC36293003CCF09 /* UserViewController.swift */,
 				BB78ACEA1DC0D9BE00007BB8 /* Main.storyboard */,
 				BB78ACED1DC0D9BE00007BB8 /* Assets.xcassets */,
 				BB78ACEF1DC0D9BE00007BB8 /* LaunchScreen.storyboard */,
@@ -88,6 +97,9 @@
 				BB78ACFB1DC0DEB900007BB8 /* Company.swift */,
 				BB78ACFC1DC0DEB900007BB8 /* Geo.swift */,
 				BB78ACFD1DC0DEB900007BB8 /* User.swift */,
+				BB3CC59B1DC3CE4E00803BD1 /* RadialGradientView.swift */,
+				BB9FBE941DC9BA07008D0A3E /* HHAnnotation.swift */,
+				BB9FBE961DCA07A8008D0A3E /* HHButton.swift */,
 			);
 			name = Methods;
 			sourceTree = "<group>";
@@ -136,7 +148,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Hamza;
 				TargetAttributes = {
 					BB78ACE21DC0D9BE00007BB8 = {
@@ -181,13 +193,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB9FBE951DC9BA07008D0A3E /* HHAnnotation.swift in Sources */,
 				BB78AD0A1DC0EA7300007BB8 /* AlertView.swift in Sources */,
+				BB3CC59C1DC3CE4E00803BD1 /* RadialGradientView.swift in Sources */,
+				BB1B39FE1DC36293003CCF09 /* UserViewController.swift in Sources */,
 				BB78AD0B1DC0EA7300007BB8 /* Users.swift in Sources */,
 				BB78AD0C1DC0EA7300007BB8 /* ServerComunication.swift in Sources */,
 				BB78AD0D1DC0EA7300007BB8 /* Address.swift in Sources */,
 				BB78AD0E1DC0EA7300007BB8 /* Company.swift in Sources */,
 				BB78AD0F1DC0EA7300007BB8 /* Geo.swift in Sources */,
 				BB78AD101DC0EA7300007BB8 /* User.swift in Sources */,
+				BB9FBE971DCA07A8008D0A3E /* HHButton.swift in Sources */,
 				BB78ACE91DC0D9BE00007BB8 /* UsersViewController.swift in Sources */,
 				BB78ACE71DC0D9BE00007BB8 /* AppDelegate.swift in Sources */,
 			);
@@ -233,6 +249,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -283,6 +300,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -351,6 +369,7 @@
 				BB78ACF71DC0D9BE00007BB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

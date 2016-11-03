@@ -22,6 +22,7 @@ class UsersViewController: UIViewController {
         super.viewDidLoad()
         tableViewTableView.delegate = self
         tableViewTableView.dataSource = self
+        mapViewMKMapView.delegate = self
         
         // Load all users into SingleTone Users
         ServerComunication.shared.refreshUsers()
@@ -43,42 +44,66 @@ class UsersViewController: UIViewController {
     
     //Put Users on Map, annotations
     func putUsersOnMap() {
-        for user in users {
-            if let latitude = user.address?.geo?.lat, let longitude = user.address?.geo?.lng {
-                let annotation = MKPointAnnotation()
-                
-                let coordinate = CLLocationCoordinate2DMake(Double(latitude)!, Double(longitude)!)
-                annotation.coordinate = coordinate
-                
-                if let name = user.name {
-                    annotation.title = name
+        for (index, user) in users.enumerated() {
+            if let address = user.address {
+                if let geo = address.geo {
+                    if let latitude = geo.lat, let longitude = geo.lng {
+                        //Check could latitude, longitude can be casted as Double, otherwise return
+                        guard let _ = Double(latitude), let _ = Double(longitude) else{
+                            return
+                        }
+                        let coordinate = CLLocationCoordinate2DMake(Double(latitude)!, Double(longitude)!)
+
+                        let annotation = HHAnnotation(coordinate: coordinate)
+                        
+                        annotation.index = index
+                        if let name = user.name {
+                            annotation.title = "\(name) : \(index)"
+                        }
+                        var streetAndCity = ""
+                        if let street = user.address?.street {
+                            streetAndCity += street
+                        }
+                        if let city = user.address?.city {
+                            streetAndCity += ", " + city
+                        }
+                        annotation.subtitle = streetAndCity
+                        mapViewMKMapView.addAnnotation(annotation)
+                    }
                 }
-                var streetAndCity = ""
-                if let street = user.address?.street {
-                    streetAndCity += street
-                }
-                if let city = user.address?.city {
-                    streetAndCity += ", " + city
-                }
-                annotation.subtitle = streetAndCity
-                mapViewMKMapView.addAnnotation(annotation)
             }
         }
         if let firstUser = users.first {
             showUsersLocation(user: firstUser)
         }
+        
     }
     
     //Show Users location
     func showUsersLocation(user: User){
-        if let latitude = user.address?.geo?.lat, let longitude = user.address?.geo?.lng {
-            print(latitude + " " + longitude)
-            let span = MKCoordinateSpanMake(1, 1)
-            let coordinate = CLLocationCoordinate2DMake(Double(latitude)!, Double(longitude)!)
+        if let address = user.address {
+            if let geo = address.geo {
+                if let latitude = geo.lat, let longitude = geo.lng {
+                    //Check could latitude, longitude can be casted as Double, otherwise return
+                    guard let _ = Double(latitude), let _ = Double(longitude) else{
+                        return
+                    }
+                    let span = MKCoordinateSpanMake(1, 1)
+                    let coordinate = CLLocationCoordinate2DMake(Double(latitude)!, Double(longitude)!)
             
-            let mapRegion = MKCoordinateRegionMake(coordinate, span)
-            mapViewMKMapView.setRegion(mapRegion, animated: true)
+                    let mapRegion = MKCoordinateRegionMake(coordinate, span)
+                    self.mapViewMKMapView.setRegion(mapRegion, animated: false)                }
+            }
         }
+    }
+    
+    //Display selected user from annotation
+    func displayUser(sender: UIButton) {
+        let sentIndex = sender.tag
+        let sentUser = users[sentIndex]
+        let userView = self.storyboard?.instantiateViewController(withIdentifier: "UserViewController") as! UserViewController
+        userView.user = sentUser
+        self.navigationController?.pushViewController(userView, animated: true)
     }
     
     // MARK: Action
@@ -90,26 +115,27 @@ class UsersViewController: UIViewController {
 
 
 extension UsersViewController: UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate{
-    // MARK: - Table view data source
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refresh()
     }
+    
+    // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return users.count
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath){
+        print(indexPath.row)
         let user = users[indexPath.row]
         showUsersLocation(user: user)
+        
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -117,16 +143,64 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource, MKMap
 
         let user = users[indexPath.row]
 
-        cell.textLabel?.text = user.name
-        cell.detailTextLabel?.text = (user.address?.street)! + ", " + (user.address?.city)!
-
+        if let name = user.name {
+            cell.textLabel?.text = "\(name)  : \(indexPath.row)"
+        }
+        
+        if let address = user.address {
+            var stringAddress = ""
+            if let street = address.street {
+                stringAddress += street
+            }
+            if let city = address.city{
+                stringAddress += ", \(city)"
+            }
+            cell.detailTextLabel?.text = stringAddress
+        }
         return cell
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "Pin")
-        annotationView.canShowCallout = true
-        annotationView.pinTintColor = UIColor.blue
-        return annotationView
+        if let annotation = annotation as? HHAnnotation {
+            let identifier = "pin"
+            var annotationView: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView {
+                dequeuedView.annotation = annotation
+                annotationView = dequeuedView
+            } else {
+                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotationView.canShowCallout = true
+                let btn = UIButton(type: .detailDisclosure)
+                btn.tag = annotation.index!
+                btn.addTarget(self, action: #selector(UsersViewController.displayUser), for: UIControlEvents.touchUpInside)
+                annotationView.rightCalloutAccessoryView = btn
+            }
+            return annotationView
+        }
+        return nil
     }
+    
+    func mapView(_ didUpdatemapView: MKMapView, didUpdate
+        userLocation: MKUserLocation) {
+        mapViewMKMapView.centerCoordinate = (userLocation.location?.coordinate)!
+    }
+    
+    /*
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if (control as? UIButton)?.buttonType == UIButtonType.detailDisclosure {
+            if let annotation = view.annotation as? HHAnnotation {
+                if let selectedIndex = annotation.index {
+                    let userView = UserViewController()
+                    let user = users[selectedIndex]
+                    userView.displayUser(user: user)
+                    performSegue(withIdentifier: "displayUserProfile", sender: control)
+                }
+            }
+            
+        }
+    }
+    */
+    
+
+ 
 }

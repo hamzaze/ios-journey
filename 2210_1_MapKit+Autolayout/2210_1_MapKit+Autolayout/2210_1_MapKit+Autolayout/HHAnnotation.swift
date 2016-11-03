@@ -6,16 +6,16 @@
 //  Copyright © 2016 Hamza. All rights reserved.
 //
 
-import UIKit
+import MapKit
+import Foundation
 
-class HHAnnotation: MKAnnotationView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+class HHAnnotation: NSObject, MKAnnotation {
+    var index: Int?
+    var title: String?
+    var coordinate: CLLocationCoordinate2D
+    var subtitle: String?
+    
+    init(coordinate: CLLocationCoordinate2D) {
+        self.coordinate = coordinate
     }
-    */
-
 }
