@@ -1,0 +1,4 @@
+target '2910_1_Pods+Animations' do
+use_frameworks!
+pod 'SwiftLoader'
+end

@@ -1,0 +1,12 @@
+PODS:
+  - SwiftLoader (0.2.5)
+
+DEPENDENCIES:
+  - SwiftLoader
+
+SPEC CHECKSUMS:
+  SwiftLoader: 12d7a6f661f5e9a2c9a72003e7dd6162f4ff0cc4
+
+PODFILE CHECKSUM: 4b27074fd0a82e1b0de2a4e2e4fb36a4f734176f
+
+COCOAPODS: 1.1.1
