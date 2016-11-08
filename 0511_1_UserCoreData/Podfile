@@ -1,0 +1,6 @@
+platform :ios, '8.0'
+use_frameworks!
+
+target '0511_1_UserCoreData' do
+    pod 'SwiftyJSON', '3.0.0'
+end

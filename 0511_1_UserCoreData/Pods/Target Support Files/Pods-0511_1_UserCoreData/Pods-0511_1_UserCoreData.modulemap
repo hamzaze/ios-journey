@@ -1,0 +1,6 @@
+framework module Pods_0511_1_UserCoreData {
+  umbrella header "Pods-0511_1_UserCoreData-umbrella.h"
+
+  export *
+  module * { export * }
+}
