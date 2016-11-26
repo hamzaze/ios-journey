@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BB43DB241DDF31F400281363 /* HHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB43DB231DDF31F400281363 /* HHViewController.swift */; };
+		BB473D2F1DDC68B400E44F51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB473D2E1DDC68B400E44F51 /* AppDelegate.swift */; };
+		BB473D311DDC68B400E44F51 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB473D301DDC68B400E44F51 /* WelcomeViewController.swift */; };
+		BB473D341DDC68B400E44F51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB473D321DDC68B400E44F51 /* Main.storyboard */; };
+		BB473D371DDC68B400E44F51 /* PlayMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB473D351DDC68B400E44F51 /* PlayMe.xcdatamodeld */; };
+		BB473D391DDC68B400E44F51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB473D381DDC68B400E44F51 /* Assets.xcassets */; };
+		BB473D3C1DDC68B400E44F51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB473D3A1DDC68B400E44F51 /* LaunchScreen.storyboard */; };
+		BB473D451DDC6E4200E44F51 /* HHLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB473D441DDC6E4200E44F51 /* HHLabel.swift */; };
+		BB473D471DDC6F1200E44F51 /* HHConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB473D461DDC6F1200E44F51 /* HHConstants.swift */; };
+		BB473D491DDC989500E44F51 /* HHView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB473D481DDC989500E44F51 /* HHView.swift */; };
+		BB473D4B1DDCA09D00E44F51 /* HHTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB473D4A1DDCA09D00E44F51 /* HHTextField.swift */; };
+		BB522C121DE10B9600BF2CDC /* HHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB522C111DE10B9600BF2CDC /* HHButton.swift */; };
+		BB522C141DE19D9100BF2CDC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB522C131DE19D9100BF2CDC /* ProfileViewController.swift */; };
+		BB551FF51DE8EA8F000B901D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB551FF41DE8EA8F000B901D /* SplashViewController.swift */; };
+		BB551FF81DE8FE04000B901D /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB551FF71DE8FE04000B901D /* AlertView.swift */; };
+		BB551FFA1DE91194000B901D /* RecordVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB551FF91DE91194000B901D /* RecordVideoViewController.swift */; };
+		BB551FFC1DE92815000B901D /* AfterVideoRecordedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB551FFB1DE92815000B901D /* AfterVideoRecordedViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BB43DB231DDF31F400281363 /* HHViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHViewController.swift; sourceTree = "<group>"; };
+		BB473D2B1DDC68B400E44F51 /* PlayMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB473D2E1DDC68B400E44F51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BB473D301DDC68B400E44F51 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		BB473D331DDC68B400E44F51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BB473D361DDC68B400E44F51 /* PlayMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlayMe.xcdatamodel; sourceTree = "<group>"; };
+		BB473D381DDC68B400E44F51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB473D3B1DDC68B400E44F51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BB473D3D1DDC68B400E44F51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB473D441DDC6E4200E44F51 /* HHLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHLabel.swift; sourceTree = "<group>"; };
+		BB473D461DDC6F1200E44F51 /* HHConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHConstants.swift; sourceTree = "<group>"; };
+		BB473D481DDC989500E44F51 /* HHView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHView.swift; sourceTree = "<group>"; };
+		BB473D4A1DDCA09D00E44F51 /* HHTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHTextField.swift; sourceTree = "<group>"; };
+		BB522C111DE10B9600BF2CDC /* HHButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHButton.swift; sourceTree = "<group>"; };
+		BB522C131DE19D9100BF2CDC /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BB551FF41DE8EA8F000B901D /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		BB551FF71DE8FE04000B901D /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		BB551FF91DE91194000B901D /* RecordVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordVideoViewController.swift; sourceTree = "<group>"; };
+		BB551FFB1DE92815000B901D /* AfterVideoRecordedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterVideoRecordedViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BB473D281DDC68B400E44F51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BB473D221DDC68B400E44F51 = {
+			isa = PBXGroup;
+			children = (
+				BB473D2D1DDC68B400E44F51 /* PlayMe */,
+				BB473D2C1DDC68B400E44F51 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BB473D2C1DDC68B400E44F51 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB473D2B1DDC68B400E44F51 /* PlayMe.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BB473D2D1DDC68B400E44F51 /* PlayMe */ = {
+			isa = PBXGroup;
+			children = (
+				BB551FF61DE8FDD6000B901D /* Helpers */,
+				BB473D431DDC6E1000E44F51 /* Extensions and Constants */,
+				BB473D2E1DDC68B400E44F51 /* AppDelegate.swift */,
+				BB473D301DDC68B400E44F51 /* WelcomeViewController.swift */,
+				BB551FF91DE91194000B901D /* RecordVideoViewController.swift */,
+				BB551FFB1DE92815000B901D /* AfterVideoRecordedViewController.swift */,
+				BB522C131DE19D9100BF2CDC /* ProfileViewController.swift */,
+				BB473D321DDC68B400E44F51 /* Main.storyboard */,
+				BB473D381DDC68B400E44F51 /* Assets.xcassets */,
+				BB473D3A1DDC68B400E44F51 /* LaunchScreen.storyboard */,
+				BB473D3D1DDC68B400E44F51 /* Info.plist */,
+				BB473D351DDC68B400E44F51 /* PlayMe.xcdatamodeld */,
+			);
+			path = PlayMe;
+			sourceTree = "<group>";
+		};
+		BB473D431DDC6E1000E44F51 /* Extensions and Constants */ = {
+			isa = PBXGroup;
+			children = (
+				BB473D441DDC6E4200E44F51 /* HHLabel.swift */,
+				BB473D461DDC6F1200E44F51 /* HHConstants.swift */,
+				BB473D481DDC989500E44F51 /* HHView.swift */,
+				BB473D4A1DDCA09D00E44F51 /* HHTextField.swift */,
+				BB43DB231DDF31F400281363 /* HHViewController.swift */,
+				BB522C111DE10B9600BF2CDC /* HHButton.swift */,
+				BB551FF41DE8EA8F000B901D /* SplashViewController.swift */,
+			);
+			name = "Extensions and Constants";
+			sourceTree = "<group>";
+		};
+		BB551FF61DE8FDD6000B901D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BB551FF71DE8FE04000B901D /* AlertView.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BB473D2A1DDC68B400E44F51 /* PlayMe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB473D401DDC68B400E44F51 /* Build configuration list for PBXNativeTarget "PlayMe" */;
+			buildPhases = (
+				BB473D271DDC68B400E44F51 /* Sources */,
+				BB473D281DDC68B400E44F51 /* Frameworks */,
+				BB473D291DDC68B400E44F51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlayMe;
+			productName = PlayMe;
+			productReference = BB473D2B1DDC68B400E44F51 /* PlayMe.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BB473D231DDC68B400E44F51 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = Hamza;
+				TargetAttributes = {
+					BB473D2A1DDC68B400E44F51 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = BB473D261DDC68B400E44F51 /* Build configuration list for PBXProject "PlayMe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BB473D221DDC68B400E44F51;
+			productRefGroup = BB473D2C1DDC68B400E44F51 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BB473D2A1DDC68B400E44F51 /* PlayMe */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BB473D291DDC68B400E44F51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB473D3C1DDC68B400E44F51 /* LaunchScreen.storyboard in Resources */,
+				BB473D391DDC68B400E44F51 /* Assets.xcassets in Resources */,
+				BB473D341DDC68B400E44F51 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BB473D271DDC68B400E44F51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB551FF81DE8FE04000B901D /* AlertView.swift in Sources */,
+				BB551FFA1DE91194000B901D /* RecordVideoViewController.swift in Sources */,
+				BB43DB241DDF31F400281363 /* HHViewController.swift in Sources */,
+				BB473D471DDC6F1200E44F51 /* HHConstants.swift in Sources */,
+				BB522C141DE19D9100BF2CDC /* ProfileViewController.swift in Sources */,
+				BB473D451DDC6E4200E44F51 /* HHLabel.swift in Sources */,
+				BB473D4B1DDCA09D00E44F51 /* HHTextField.swift in Sources */,
+				BB473D311DDC68B400E44F51 /* WelcomeViewController.swift in Sources */,
+				BB473D2F1DDC68B400E44F51 /* AppDelegate.swift in Sources */,
+				BB522C121DE10B9600BF2CDC /* HHButton.swift in Sources */,
+				BB473D491DDC989500E44F51 /* HHView.swift in Sources */,
+				BB551FFC1DE92815000B901D /* AfterVideoRecordedViewController.swift in Sources */,
+				BB473D371DDC68B400E44F51 /* PlayMe.xcdatamodeld in Sources */,
+				BB551FF51DE8EA8F000B901D /* SplashViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BB473D321DDC68B400E44F51 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB473D331DDC68B400E44F51 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BB473D3A1DDC68B400E44F51 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB473D3B1DDC68B400E44F51 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BB473D3E1DDC68B400E44F51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BB473D3F1DDC68B400E44F51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BB473D411DDC68B400E44F51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PlayMe/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamzaze.PlayMe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BB473D421DDC68B400E44F51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PlayMe/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamzaze.PlayMe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BB473D261DDC68B400E44F51 /* Build configuration list for PBXProject "PlayMe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB473D3E1DDC68B400E44F51 /* Debug */,
+				BB473D3F1DDC68B400E44F51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB473D401DDC68B400E44F51 /* Build configuration list for PBXNativeTarget "PlayMe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB473D411DDC68B400E44F51 /* Debug */,
+				BB473D421DDC68B400E44F51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BB473D351DDC68B400E44F51 /* PlayMe.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BB473D361DDC68B400E44F51 /* PlayMe.xcdatamodel */,
+			);
+			currentVersion = BB473D361DDC68B400E44F51 /* PlayMe.xcdatamodel */;
+			path = PlayMe.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BB473D231DDC68B400E44F51 /* Project object */;
+}
